@@ -1,6 +1,7 @@
 from fastapi.testclient import TestClient
 from ..ml.main import app
 
+
 client = TestClient(app)
 
 def test_read_root():
