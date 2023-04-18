@@ -1,7 +1,7 @@
 import pytest
-from starter.ml.data import process_data
-from starter.ml.clean_data import basic_cleaning
-from starter.ml.model import train_model, compute_model_metrics, inference, predict_single
+from ..ml.data import process_data
+from ..ml.clean_data import basic_cleaning
+from ..ml.model import train_model, compute_model_metrics, inference, predict_single
 import pandas as pd
 
 @pytest.fixture(scope="session")
