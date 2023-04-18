@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 import joblib
 
-from ml.model import train_model, compute_model_metrics, inference, compute_slice_metrics
+from ml.model import train_model, compute_model_metrics, inference, compute_slice_metrics,save_model
 from ml.data import process_data
 from ml.clean_data import basic_cleaning
 
@@ -29,6 +29,7 @@ def main():
 
     # Train model.
     model = train_model(X_train, y_train)
+    save_model(model,"model.joblib")
 
     # Evaluate the model on the validation data.
     y_pred = inference(model, X_val)

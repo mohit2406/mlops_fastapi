@@ -2,7 +2,6 @@ from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 import joblib
-import logging
 from .clean_data  import basic_cleaning
 import pandas as pd
 from .data import process_data
@@ -90,7 +89,6 @@ def load_model(path):
     model
         Trained machine learning model.
     """
-    logging.info(f"Loading model from {path + '/model.joblib'}")
     model = joblib.load(path + "/model.joblib")
     encoder = joblib.load(path + "/encoder.joblib")
     lb = joblib.load(path + "/lb.joblib")
@@ -127,10 +125,8 @@ def compute_slice_metrics(cleaned_df, target, categorical_features, feature, mod
         #X_slice = X_slice.drop([target], axis=1)
         X_slice, y_slice, _, _  = process_data(X_slice, categorical_features, label="salary", training=False, encoder=encoder, lb=lb)
         preds = inference(model, X_slice)
-        logging.info(f"shape of preds: {preds.shape} & shape of y_slice: {y_slice.shape}")
         precision, recall, fbeta = compute_model_metrics(y_slice, preds)
         slice_metrics[value] = {'precision': precision, 'recall': recall, 'fbeta': fbeta}
-        logging.info(f"slice metrics for {feature} = {value}: {slice_metrics[value]}")
     
     #write to slice_output.txt
     with open('slice_output.txt', 'w') as f:
@@ -157,7 +153,6 @@ def predict_single(input_json, model_dir):
     """
     # Convert the input to a dataframe with same data types as training data.
     input_df = pd.DataFrame(dict(input_json), index=[0])
-    logging.info(f"input_df: {input_df}")
 
     #clean data
     cleaned_df, cat_cols, num_cols = basic_cleaning(input_df, "data/census_cleaned.csv", "salary", test=True)
