@@ -7,7 +7,7 @@ import pandas as pd
 
 @pytest.fixture(scope="session")
 def load_data():
-    data = pd.read_csv("test_data/census.csv")
+    data = pd.read_csv("starter/starter/tests/test_data/census.csv")
     return data
 
 def test_load_data(load_data):
