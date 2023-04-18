@@ -17,6 +17,7 @@ Evaluation data is the 20% of full downloaded data by using train_test_split fun
 ## Metrics
 _Please include the metrics used and your model's performance on those metrics._
 Precision,Recall,Fbeta
+Precision: 0.7250187828700225, Recall: 0.619781631342325, Fbeta: 0.6682825484764543
 
 ## Ethical Considerations
 This model is trained on census data. The model is not biased towards any particular group of people.

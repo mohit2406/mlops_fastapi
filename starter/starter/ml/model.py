@@ -3,9 +3,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 import logging
-from starter.ml.clean_data import basic_cleaning
+from .clean_data  import basic_cleaning
 import pandas as pd
-from starter.ml.data import process_data
+from .data import process_data
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):

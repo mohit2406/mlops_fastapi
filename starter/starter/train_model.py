@@ -4,18 +4,18 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 import joblib
 
-from starter.ml.model import train_model, compute_model_metrics, inference, compute_slice_metrics
-from starter.ml.data import process_data
-from starter.ml.clean_data import basic_cleaning
+from ml.model import train_model, compute_model_metrics, inference, compute_slice_metrics
+from ml.data import process_data
+from ml.clean_data import basic_cleaning
 
 # Add code to load in the data.
 
 def main():
     # Load data
-    data = pd.read_csv("data/census.csv")
+    data = pd.read_csv("../data/census.csv")
 
     # Clean data
-    cleaned_data, cat_cols, num_cols = basic_cleaning(data, "data/census_cleaned.csv", "salary")
+    cleaned_data, cat_cols, num_cols = basic_cleaning(data, "../data/census_cleaned.csv", "salary")
 
     # split data into train and test
     train_full, test = train_test_split(cleaned_data, test_size=0.20)
