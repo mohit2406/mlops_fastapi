@@ -1,9 +1,7 @@
 # Put the code for your API here.
 from fastapi import FastAPI, Body, Response, status
 from pydantic import BaseModel
-from ..starter.starter.ml.model import load_model, predict_single
-from starter.ml.data import process_data
-from starter.ml.clean_data import basic_cleaning
+from starter.ml.model import load_model, predict_single
 import os
 
 
