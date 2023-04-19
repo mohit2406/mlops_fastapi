@@ -16,7 +16,7 @@ sample_dict = {     'workclass': 'state_gov',
                     'capital_loss': 0,
                     'hours_per_week': 40
                 }
-url = "http://0.0.0.0:5000/predict"
+url = "https://mlops-new.onrender.com/predict"
 post_response = requests.post(url, json=sample_dict)
 print(post_response.status_code)
 print(post_response.content)
