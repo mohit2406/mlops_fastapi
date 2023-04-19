@@ -80,7 +80,7 @@ def predict(data: Data):
     else:
 
         #predict
-        y_pred = predict_single(data, 'starter/model')
+        y_pred = predict_single(data, 'model')
 
         response = Response(
             status_code=status.HTTP_200_OK,
