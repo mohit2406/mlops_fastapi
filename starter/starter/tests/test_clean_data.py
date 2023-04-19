@@ -11,11 +11,11 @@ def load_data():
     return data
 
 def test_load_data(load_data):
-    assert load_data.shape == (99, 15)
+    assert load_data.shape == (32561, 15)
 
 def test_cleaning(load_data):
     cleaned_data, cat_cols, num_cols = basic_cleaning(load_data, "starter/data/census_cleaned.csv", "salary")
-    assert cleaned_data.shape == (99, 15)
+    assert cleaned_data.shape == (32561, 15)
     assert cleaned_data.isna().sum().sum() == 0
     assert len(cat_cols) == 8
     assert len(num_cols) == 6
