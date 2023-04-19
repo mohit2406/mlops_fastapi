@@ -25,6 +25,8 @@ def main():
 
     # Proces the test data with the process_data function.
     X_train, y_train, encoder, lb = process_data(train, categorical_features=cat_cols, label="salary", training=True)
+    save_model(encoder, "encoder.joblib")
+    save_model(lb, "lb.joblib")
     X_val, y_val, _, _ = process_data(val, categorical_features=cat_cols, label="salary", training=False, encoder=encoder, lb=lb)
 
     # Train model.
